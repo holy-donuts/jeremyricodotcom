@@ -56,7 +56,7 @@ ROOT_URLCONF = 'jeremyricodotcom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["jeremyricodotcom/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
