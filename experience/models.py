@@ -1,10 +1,11 @@
 from django.db import models
 
 # Create your models here.
-class position(models.Model):
-    company=models.CharField(max_length=50)
-    title=models.CharField(max_length=100)
-    description=models.TextField()
-    technology=models.CharField(max_length=50)
-    image=models.FilePathField(path="/img")
+class Position(models.Model):
+    title   = models.CharField(max_length=100)
+    company = models.CharField(max_length=50)
+    time    = models.CharField(max_length=50)
+    tech    = models.CharField(max_length=50)
+    desc    = models.TextField()
+    img     = models.FilePathField(path="/img")
     

@@ -1,7 +1,17 @@
 {%extends "base.html"%}
 {%load static%}
 {%block page_content%}
-<h1>Projects</h1>
+<head>
+<link rel="stylesheet" href="project_index.css">
+</head>
+
+<section class="jumbotron text-center">
+  <div class="contatiner">
+    <h1 class="jumbotron-heading">Projects</h1>
+    <p class="lead text-muted">test text</p>
+  </div>
+</section>
+
 <div class="row">
 
 {%for project in projects%}
