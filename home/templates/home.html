@@ -1,21 +1,57 @@
 {%extends "base.html"%}
 {%load static%}
 {%block page_content%}
-<link rel="stylesheet" href="home.css" type='text/css'>
+
+<!--<link rel="stylesheet" href="{% static 'css/home.css' %}">-->
 
 <div class="jumbotron">
-  <h1>Jeremy Rico</h1>
-  <p>Freelance software engineer specializing in artificial intelligence,
+  <h1 class="display-4">Jeremy Rico</h1>
+  <p class="lead">Software engineer specializing in artificial intelligence,
   machine learning, and full stack web development</p>
+  <hr class="my-4">
 </div>
 
 <div class="container">
   <div class="page-header">
-    <h1 class="text-light"> Test Header </h1>
+    <h1 class="text-light"> HOWDY </h1>
   </div>
- <p class="text-light"> testing testing </p>
- <p class="text-light"> testtestetsetsetsete </p>
-  <p class="text-light"> more test</p>
+ <p class="text-light">I am a software engineer currently living in Silicon
+   Valley working on AI projects related to computer vision and speech
+   recognition for <a href="https://www.uniquify.com/" class="link-primary">
+   Uniquify, Inc.</a> I also do full-stack work on websites (like this one!)
+   for fun.</p>
+ <p class="text-light">Outside of programming I enjoy playing ice hockey,
+   producing music (<a href="#" class="link-primary">check out my other site
+   here!</a>), and reading trashy romance manga ¯\_(ツ)_/¯</p>
+ <hr class="my-4 bg-dark">
 </div>
+
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-light">TECH STACK</h1>
+  </div>
+ <p class="text-light">Languages: Python, c++, HTML5, CSS</p>
+ <p class="text-light">AI/ML Frameworks: TensorFlow, PyTorch, Sci-kit learn</p>
+ <p class="text-light">Web Dev Framworks: Django, Bootstrap</p>
+ <p class="text-light">Fuel: Philz's iced mint mojitos, cold brew coffee, and various teas </p>
+ <hr class="my-4 bg-dark">
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-light">ACCOMPLISHMENTS</h1>
+  </div>
+ <p class="text-light">Beat the entire Dark Souls trilogy and with minimal mental breakdowns.</p>
+ <p class="text-light">Once plugged in a USB drive correctly on the first try.</p>
+ <hr class="my-4 bg-dark">
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-light">FIND ME</h1>
+  </div>
+  <a href="mailto:jeremy.rico35@gmail.com"><img src="{% static 'img/iconmonstr-email-10.svg' %}" alt='git-white'></a>
+  <a href="https://github.com/jeremy-rico/"><img src="{% static 'img/github-mark-white.svg' %}" alt='git-white'></a>
+  <a href="https://www.linkedin.com/in/jeremy-rico-787925106/"><img src="{% static 'img/iconmonstr-linkedin-3.svg' %}" alt='linkedin'></a>
 </div>
 {%endblock %}
