@@ -2,56 +2,120 @@
 {%load static%}
 {%block page_content%}
 
-<!--<link rel="stylesheet" href="{% static 'css/home.css' %}">-->
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<div class="jumbotron">
-  <h1 class="display-4">Jeremy Rico</h1>
+<div class="hero-image"></div>
+<div class="hero-content">
+  <img src="{% static 'img/me.jpg' %}" class="hero-portrait rounded-circle" alt='me.jpg'>
+  <h1 class="display-1 mb-4">Jeremy Rico</h1>
   <p class="lead">Software engineer specializing in artificial intelligence,
-  machine learning, and full stack web development</p>
-  <hr class="my-4">
+     machine learning, and full-stack web development</p>
+  <a class="btn btn-light" href="#AboutMe" role="button">Learn More</a>
 </div>
 
-<div class="container">
-  <div class="page-header">
-    <h1 class="text-light"> HOWDY </h1>
-  </div>
- <p class="text-light">I am a software engineer currently living in Silicon
-   Valley working on AI projects related to computer vision and speech
-   recognition for <a href="https://www.uniquify.com/" class="link-primary">
-   Uniquify, Inc.</a> I also do full-stack work on websites (like this one!)
-   for fun.</p>
- <p class="text-light">Outside of programming I enjoy playing ice hockey,
-   producing music (<a href="#" class="link-primary">check out my other site
-   here!</a>), and reading trashy romance manga ¯\_(ツ)_/¯</p>
- <hr class="my-4 bg-dark">
+<!--BEGIN ABOUT ME-->
+<div class="section-container" id="AboutMe">
+  <h1 class="section-header">HOWDY</h1>
+  <p>I am a software engineer currently living in Silicon
+    Valley working on AI projects related to computer vision and speech
+    recognition for <a href="https://www.uniquify.com/" class="link-primary">
+    Uniquify, Inc.</a> I also do full-stack work on web development projects for
+    individual clients, small businesses, and sometimes just for fun!</p>
+  <p>Outside of programming I enjoy playing ice hockey,
+    producing music (<a href="#" class="link-primary">check out my other site
+    here!</a>), and reading trashy romance manga ¯\_(ツ)_/¯</p>
+  <p>If you have an idea for an artificial intelligence or
+    web based project, please feel free to <a href="#contact"
+    class="link-primary">contact me!</a></p>
 </div>
+<!--END ABOUT ME-->
 
-<div class="container">
-  <div class="page-header">
-    <h1 class="text-light">TECH STACK</h1>
+<!--BEGIN EXPERIENCE-->
+<div class="section-container" id="Experience">
+  <h1 class="section-header">Professional Experience</h1>
+  <div id="experience-timeline">
+    {% for pos in positions %}
+      <div class="timeline-point">
+        <div class="timeline-icon">
+          <img src="{% static 'img/chevron-right.svg' %}" alt="chevron-right">
+        </div>
+        <div>
+          <span class="timeline-date">{{ pos.time }}</span>
+          <div class="experience-card">
+            <div class="company-logo">
+              <a href="{{pos.link}}" taget="_blank">
+                <img src="{% static pos.img %}" alt="unq-logo">
+              </a>
+            </div>
+            <div>
+              <h2>{{ pos.company }}</h2>
+              <h5>{{ pos.title }}</h5>
+              <p>{{ pos.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
   </div>
- <p class="text-light">Languages: Python, c++, HTML5, CSS</p>
- <p class="text-light">AI/ML Frameworks: TensorFlow, PyTorch, Sci-kit learn</p>
- <p class="text-light">Web Dev Framworks: Django, Bootstrap</p>
- <p class="text-light">Fuel: Philz's iced mint mojitos, cold brew coffee, and various teas </p>
- <hr class="my-4 bg-dark">
 </div>
+<!--END EXPERIENCE-->
 
-<div class="container">
-  <div class="page-header">
-    <h1 class="text-light">ACCOMPLISHMENTS</h1>
-  </div>
- <p class="text-light">Beat the entire Dark Souls trilogy and with minimal mental breakdowns.</p>
- <p class="text-light">Once plugged in a USB drive correctly on the first try.</p>
- <hr class="my-4 bg-dark">
+<!--BEGIN PROJECTS-->
+<div class="section-container" id="Projects">
+  <h1 class="section-header">Projects</h1>
+  {% for proj in projects %}
+    <div class="project-container">
+      <img class="project-image" src="{% static proj.img %}">
+      <div class="project-content">
+        <h2>{{ proj.title }}</h2>
+        <p>{{ proj.desc }}</p>
+        <a href="{{proj.link}}" target="_blank">Check it</a>
+      </div>
+    </div>
+  {% endfor %}
 </div>
+<!--END PROJECTS-->
 
-<div class="container">
-  <div class="page-header">
-    <h1 class="text-light">FIND ME</h1>
+<!--BEGIN EDUCATION-->
+<div class="section-container" id="Education">
+  <h1 class="section-header">Education</h1>
+  {% for edu in educations %}
+    <div class="education-container">
+      <div class="education-content">
+        <h2>{{ edu.school }}</h2>
+        <h5>{{ edu.major }}</h5>
+      </div>
+      <img class="education-image" src="{% static edu.img %}">
+    </div>
+  {% endfor %}
+</div>
+<!--END EDUCATION-->
+
+<!--BEGIN TECH SKILLS-->
+<div class="section-container" id="Skills">
+  <h1 class="section-header">Skills</h1>
+  <div class="skills-container">
+    {% for skill in skills %}
+      <div class="skill-card">
+        <p>{{ skill }}</p>
+      </div>
+    {% endfor %}
   </div>
-  <a href="mailto:jeremy.rico35@gmail.com"><img src="{% static 'img/iconmonstr-email-10.svg' %}" alt='git-white'></a>
-  <a href="https://github.com/jeremy-rico/"><img src="{% static 'img/github-mark-white.svg' %}" alt='git-white'></a>
+</div>
+<!--END TECH SKILLS-->
+
+<!--BEGIN CONTACT ME FORM-->
+<div class="section-container" id="contact">
+  <h1 class="section-header">CONTACT ME</h1>
+</div>
+<!--END CONTACT ME FORM-->
+
+<!--BEGIN FIND ME-->
+<div class="section-container" id="">
+  <h1 class="section-header">FIND ME</h1>
+  <a href="mailto:jeremy.rico35@gmail.com"><img src="{% static 'img/iconmonstr-email-10.svg' %}" alt='email'></a>
+  <a href="https://github.com/jeremy-rico/"><img src="{% static 'img/github-mark-white.svg' %}" alt='github'></a>
   <a href="https://www.linkedin.com/in/jeremy-rico-787925106/"><img src="{% static 'img/iconmonstr-linkedin-3.svg' %}" alt='linkedin'></a>
 </div>
+<!--END CONTACT ME-->
 {%endblock %}

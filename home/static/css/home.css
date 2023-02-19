@@ -1,33 +1,286 @@
-.jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 0rem;
-  margin-bottom: 0;
-  background-color: #194012;
+body{
+  --accent-color: #c270c0/*#3498db*/;
 }
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+/*##############*/
+/* HERO CONTENT */
+/*##############*/
+
+.hero-image {
+  background-image: linear-gradient(0deg, #00000099 50%, #ffffff01 100%),
+  url("../img/forest-bg.jpg");
+  height: 80%;
+  position: relative;
+  filter: blur(3px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-3px;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*####################*/
+/* GENERAL CONTAINERS */
+/*####################*/
+
+h1.section-header{
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.container{
+  background-color: var(--gray-10);
+}
+
+.card{
+  background-color: var(--gray-9);
+}
+
+.section-container{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray-10);
+  border-radius: 5px;
+  padding: 2rem 4rem;
+  margin: 30px 50px;
+}
+
+/*####################*/
+/* EXPERIENCE SECTION */
+/*####################*/
+
+#experience-timeline {
+    margin: 30px auto 0 auto;
+    position: relative;
+    max-width: 1000px
+}
+
+#experience-timeline:before{
+  position: absolute;
+  content: '';
+  margin-top: 10px;
+  margin-bottom: auto;
+  margin-left: 250px;
+  margin-right: auto;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-color) 75%, transparent 99%);
+  z-index: 0;
+  transition: .3s ease all;
+}
+
+.timeline-point{
+  position: relative;
+  display: block;
+  vertical-align: top;
+  margin-bottom: 30px;
+}
+
+.timeline-date{
+  display: block;
+  width: 260px;
+  text-align: right;
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  transition: .3s ease all;
+}
+
+.timeline-icon{
+  position: relative;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  z-index: 99;
+  margin-left: 226px;
+  transition: .3s ease all;
+}
+
+.experience-card{
+  display: flex;
+  flex-direction: column;
+  margin-left: 350px;
+  margin-right: auto;
+  background: var(--gray-9);
+  padding: 30px;
+  border-radius: 5px;
+  text-align: left;
+  transition: .3s ease all;
+}
+
+.company-logo img{
+  width: 80%;
+  height: 100%;
+}
+
+/*##################*/
+/* PROJECTS SECTION */
+/*##################*/
+
+.project-container{
+  display: flex;
+  background: var(--gray-9);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.project-image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.project-content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  text-align: left;
+  transition: .3s ease all;
+}
+
+/*###################*/
+/* EDUCATION SECTION */
+/*###################*/
+
+.education-container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: var(--gray-9);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.education-image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.education-content{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  text-align: left;
+  transition: .3s ease all;
+}
+
+/*################*/
+/* SKILLS SECTION */
+/*################*/
+
+.skills-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.skill-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-color);
+  margin: 10px;
+  padding-top: 15px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 100px;
+}
+
+.skill-card > p {
+  color: #000;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  #experience-timeline:before{
+    transition: .3s ease all;
+    margin-left:24px;
+  }
+  .experience-card{
+    margin-left: 60px;
+    margin-right: auto;
+    transition: .3s ease all;
+  }
+  .timeline-icon{
+    margin-left:0px;
+    transition: .3s ease all;
+  }
+  .timeline-date {
+    width: auto;
+    text-align: left;
+    position: relative;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: 115px;
+    transition: .3s ease all;
   }
 }
 
-.jumbotron p:last-child {
-  margin-bottom: 100;
+@media (min-width: 1300px) {
+  .section-container {
+    display:block;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.jumbotron-heading {
-  font-weight: 300;
+/*
+@media (min-width: 768px) {
+  .section-container {
+    max-width: 720px;
+  }
+  .experience-card{
+    max-width: 680px;
+  }
 }
-
-.jumbotron .container {
-  max-width: 40rem;
+@media (min-width: 992px) {
+  .section-container {
+    max-width: 960px;
+  }
+  .experience-card{
+    max-width: 920px;
+  }
 }
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+@media (min-width: 1200px) {
+  .section-container {
+    max-width: 1140px;
+  }
+    .experience-card{
+    max-width: 1100px;
+  }
 }
-
-footer p {
-  margin-bottom: .25rem;
+@media (min-width: 1400px) {
+  .section-container {
+    max-width: 1320px;
+  }
+    .experience-card{
+    max-width: 1280px;
+  }
 }
+*/
