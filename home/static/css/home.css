@@ -1,10 +1,14 @@
 body{
-  --accent-color: #c270c0/*#3498db*/;
+  --accent-color: #bb86FC/*#3498db*/;
 }
+
+a {
+  color: #3498db;
+}
+
 /*##############*/
 /* HERO CONTENT */
 /*##############*/
-
 .hero-image {
   background-image: linear-gradient(0deg, #00000099 50%, #ffffff01 100%),
   url("../img/forest-bg.jpg");
@@ -14,7 +18,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top:-3px;
+  margin-top:-3px; /*chop blur overflow*/
 }
 
 .hero-content {
@@ -31,24 +35,21 @@ body{
 
 h1.section-header{
   text-align: center;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--accent-color);
+  /* pad for border underline */
   padding-bottom: 10px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 20px;
-}
-
-.container{
-  background-color: var(--gray-10);
-}
-
-.card{
-  background-color: var(--gray-9);
+  padding-left: 10%;
+  padding-right: 10%;
+  /* margin for spacing */
+  margin-bottom: 40px;
 }
 
 .section-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  /*display: block;*/
   background-color: var(--gray-10);
   border-radius: 5px;
   padding: 2rem 4rem;
@@ -60,7 +61,7 @@ h1.section-header{
 /*####################*/
 
 #experience-timeline {
-    margin: 30px auto 0 auto;
+    margin: 0px auto 0 auto;
     position: relative;
     max-width: 1000px
 }
@@ -111,7 +112,7 @@ h1.section-header{
   transition: .3s ease all;
 }
 
-.experience-card{
+#experience-card{
   display: flex;
   flex-direction: column;
   margin-left: 350px;
@@ -121,6 +122,15 @@ h1.section-header{
   border-radius: 5px;
   text-align: left;
   transition: .3s ease all;
+}
+
+#experience-card h2 {
+  margin-top:20px;
+}
+
+#experience-card img {
+  margin:0;
+  padding:0;
 }
 
 .company-logo img{
@@ -162,46 +172,47 @@ h1.section-header{
 .education-container{
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  background: var(--gray-9);
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.education-image img{
+  align-items: center;
   width: 100%;
-  height: 100%;
+  background: var(--gray-9);
+  margin: 10px auto;
+  padding: 20px 50px;
   border-radius: 5px;
 }
 
 .education-content{
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
   transition: .3s ease all;
+}
+
+#education img{
+  width: 175px;
+  height: auto;
+  margin-left:20px;
 }
 
 /*################*/
 /* SKILLS SECTION */
 /*################*/
 
-.skills-container{
+/*this is how you get a fixed width flex container to center itself!*/
+/*set max-width and sec xaxis margin to auto*/
+#skills ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 20px;
-  margin-left: 250px;
-  margin-right: 250px;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
-.skill-card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#skills li{
+  display: inline-block;
+  list-style: none;
   background-color: var(--accent-color);
   margin: 10px;
   padding-top: 15px;
@@ -211,9 +222,65 @@ h1.section-header{
   border-radius: 100px;
 }
 
-.skill-card > p {
+#skills li p {
   color: #000;
   font-weight: 500;
+}
+
+/*######################*/
+/* CONTACT FORM SECTION */
+/*######################*/
+
+#contact-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#contact-form label{
+  color: #fff;
+}
+
+#contact-form input,
+#contact-form textarea {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: 1px solid var(--gray-7);
+  border-radius: 5px;
+  background: var(--gray-9);
+  color: #fff;
+}
+
+#contact-form button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  background: var(--gray-1);
+  border-color: var(--gray-1);
+  color: #3498db;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.fa-paper-plane {
+  margin:0 10px;
+}
+
+.find-me-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media (max-width: 576px){
 }
 
 @media (max-width: 768px) {
@@ -241,9 +308,11 @@ h1.section-header{
   }
 }
 
+@media (max-width: 992px) {
+}
+
 @media (min-width: 1300px) {
   .section-container {
-    display:block;
     max-width: 1180px;
     margin-left: auto;
     margin-right: auto;

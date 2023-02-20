@@ -10,28 +10,27 @@
   <h1 class="display-1 mb-4">Jeremy Rico</h1>
   <p class="lead">Software engineer specializing in artificial intelligence,
      machine learning, and full-stack web development</p>
-  <a class="btn btn-light" href="#AboutMe" role="button">Learn More</a>
+  <a href="#about-me"><img src="{% static 'img/chevron-down.svg' %}" alt='chev-down'></a>
 </div>
 
 <!--BEGIN ABOUT ME-->
-<div class="section-container" id="AboutMe">
+<div class="section-container" id="about-me">
   <h1 class="section-header">HOWDY</h1>
   <p>I am a software engineer currently living in Silicon
     Valley working on AI projects related to computer vision and speech
-    recognition for <a href="https://www.uniquify.com/" class="link-primary">
+    recognition for <a href="https://www.uniquify.com/">
     Uniquify, Inc.</a> I also do full-stack work on web development projects for
     individual clients, small businesses, and sometimes just for fun!</p>
   <p>Outside of programming I enjoy playing ice hockey,
-    producing music (<a href="#" class="link-primary">check out my other site
+    producing music (<a href="#">check out my other site
     here!</a>), and reading trashy romance manga ¯\_(ツ)_/¯</p>
   <p>If you have an idea for an artificial intelligence or
-    web based project, please feel free to <a href="#contact"
-    class="link-primary">contact me!</a></p>
+    web based project, please feel free to <a href="#contact">contact me!</a></p>
 </div>
 <!--END ABOUT ME-->
 
 <!--BEGIN EXPERIENCE-->
-<div class="section-container" id="Experience">
+<div class="section-container" id="experience">
   <h1 class="section-header">Professional Experience</h1>
   <div id="experience-timeline">
     {% for pos in positions %}
@@ -41,7 +40,7 @@
         </div>
         <div>
           <span class="timeline-date">{{ pos.time }}</span>
-          <div class="experience-card">
+          <div id="experience-card">
             <div class="company-logo">
               <a href="{{pos.link}}" taget="_blank">
                 <img src="{% static pos.img %}" alt="unq-logo">
@@ -61,7 +60,7 @@
 <!--END EXPERIENCE-->
 
 <!--BEGIN PROJECTS-->
-<div class="section-container" id="Projects">
+<div class="section-container" id="projects">
   <h1 class="section-header">Projects</h1>
   {% for proj in projects %}
     <div class="project-container">
@@ -77,45 +76,60 @@
 <!--END PROJECTS-->
 
 <!--BEGIN EDUCATION-->
-<div class="section-container" id="Education">
+<div class="section-container" id="education">
   <h1 class="section-header">Education</h1>
   {% for edu in educations %}
     <div class="education-container">
       <div class="education-content">
         <h2>{{ edu.school }}</h2>
-        <h5>{{ edu.major }}</h5>
+        <h5>{{ edu.time }}</h5>
+        <h4>{{ edu.major }}</h4>
       </div>
-      <img class="education-image" src="{% static edu.img %}">
+      <img src="{% static edu.img %}" alt="edu-logo">
     </div>
   {% endfor %}
 </div>
 <!--END EDUCATION-->
 
 <!--BEGIN TECH SKILLS-->
-<div class="section-container" id="Skills">
+<div class="section-container" id="skills">
   <h1 class="section-header">Skills</h1>
-  <div class="skills-container">
+  <ul>
     {% for skill in skills %}
-      <div class="skill-card">
+      <li>
         <p>{{ skill }}</p>
-      </div>
+      </li>
     {% endfor %}
-  </div>
+  </ul>
 </div>
 <!--END TECH SKILLS-->
 
 <!--BEGIN CONTACT ME FORM-->
-<div class="section-container" id="contact">
+<div class="section-container" id="contact-me">
   <h1 class="section-header">CONTACT ME</h1>
+  <div id="contact-form">
+    <form action="">
+      <label for="email">Your email:</label>
+      <input type="email" name="email">
+      <label for="message" class="context-label">Message:</label>
+      <textarea name="message"></textarea>
+    </form>
+    <button class="g-recaptcha"
+        data-sitekey="6LdeW5gkAAAAAE_DHjjO_5rDH2kj3U-G9FU5Ast3"
+        data-callback='onSubmit'
+        data-action='submit'>Send<i class="fas fa-paper-plane"></i></button>
+  </div>
 </div>
 <!--END CONTACT ME FORM-->
 
 <!--BEGIN FIND ME-->
 <div class="section-container" id="">
   <h1 class="section-header">FIND ME</h1>
-  <a href="mailto:jeremy.rico35@gmail.com"><img src="{% static 'img/iconmonstr-email-10.svg' %}" alt='email'></a>
-  <a href="https://github.com/jeremy-rico/"><img src="{% static 'img/github-mark-white.svg' %}" alt='github'></a>
-  <a href="https://www.linkedin.com/in/jeremy-rico-787925106/"><img src="{% static 'img/iconmonstr-linkedin-3.svg' %}" alt='linkedin'></a>
+  <div class="find-me-container" id="">
+    <a href="mailto:jeremy.rico35@gmail.com"><img src="{% static 'img/iconmonstr-email-10.svg' %}" alt='email'></a>
+    <a href="https://github.com/jeremy-rico/"><img src="{% static 'img/github-mark-white.svg' %}" alt='github'></a>
+    <a href="https://www.linkedin.com/in/jeremy-rico-787925106/"><img src="{% static 'img/iconmonstr-linkedin-3.svg' %}" alt='linkedin'></a>
+  </div>
 </div>
 <!--END CONTACT ME-->
 {%endblock %}
