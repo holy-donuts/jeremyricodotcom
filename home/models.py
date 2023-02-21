@@ -9,6 +9,10 @@ class Position(models.Model):
     link=models.CharField(max_length=50, default='test')
     img=models.FilePathField(path="/img")
 
+    #date in YYYY-MM-DD format for ordering purposes only
+    #position START date
+    date=models.CharField(max_length=50, default='0000-00-00')
+
     def __str__(self):
         return self.title
 
@@ -17,6 +21,10 @@ class Project(models.Model):
     desc  = models.TextField(default='test')
     link  = models.CharField(max_length=200, default='test')
     img   = models.FilePathField(path="/img")
+
+    #date in YYYY-MM-DD format for ordering purposes only
+    #project COMPLETION date
+    date=models.CharField(max_length=50, default='0000-00-00')
 
     def __str__(self):
         return self.title

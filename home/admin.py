@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Position, Project, Education
+from home.models import *
 """
 class Positions(admin.ModelAdmin):
     pass
@@ -11,6 +11,6 @@ class Educations(admin.ModelAdmin):
 admin.site.register(Position)
 admin.site.register(Project)
 admin.site.register(Education)
-
+admin.site.register(Skill)
 
 # Register your models here.

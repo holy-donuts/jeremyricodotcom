@@ -24,7 +24,7 @@
   <p>Outside of programming I enjoy playing ice hockey,
     producing music (<a href="#">check out my other site
     here!</a>), and reading trashy romance manga ¯\_(ツ)_/¯</p>
-  <p>If you have an idea for an artificial intelligence or
+  <p>If you have an idea for an artificial intelligence and/or
     web based project, please feel free to <a href="#contact">contact me!</a></p>
 </div>
 <!--END ABOUT ME-->
@@ -63,12 +63,12 @@
 <div class="section-container" id="projects">
   <h1 class="section-header">Projects</h1>
   {% for proj in projects %}
-    <div class="project-container">
-      <img class="project-image" src="{% static proj.img %}">
-      <div class="project-content">
+    <div id="project-container">
+      <img src="{% static proj.img %}">
+      <div id="project-content">
         <h2>{{ proj.title }}</h2>
         <p>{{ proj.desc }}</p>
-        <a href="{{proj.link}}" target="_blank">Check it</a>
+        <a href="{{proj.link}}" target="_blank">Check it out<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
     </div>
   {% endfor %}
@@ -79,8 +79,8 @@
 <div class="section-container" id="education">
   <h1 class="section-header">Education</h1>
   {% for edu in educations %}
-    <div class="education-container">
-      <div class="education-content">
+    <div id="education-container">
+      <div id="education-content">
         <h2>{{ edu.school }}</h2>
         <h5>{{ edu.time }}</h5>
         <h4>{{ edu.major }}</h4>
@@ -108,16 +108,19 @@
 <div class="section-container" id="contact-me">
   <h1 class="section-header">CONTACT ME</h1>
   <div id="contact-form">
-    <form action="">
-      <label for="email">Your email:</label>
+    <form action="" method="get">
+      {% csrf_token %}
+      {{ form }}
+<!--      <label for="email">Your email:</label>
       <input type="email" name="email">
       <label for="message" class="context-label">Message:</label>
-      <textarea name="message"></textarea>
+      <textarea name="message"></textarea> -->
+      <button type='submit'>Send<i class="fas fa-paper-plane"></i></button>
     </form>
-    <button class="g-recaptcha"
+     <!--class="g-recaptcha"
         data-sitekey="6LdeW5gkAAAAAE_DHjjO_5rDH2kj3U-G9FU5Ast3"
-        data-callback='onSubmit'
-        data-action='submit'>Send<i class="fas fa-paper-plane"></i></button>
+        data-callback='onSubmit'-->
+
   </div>
 </div>
 <!--END CONTACT ME FORM-->
