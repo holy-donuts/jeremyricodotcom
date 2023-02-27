@@ -10,24 +10,31 @@ def home(request):
     educations = Education.objects.all()
     skills = Skill.objects.all()
 
-    if request.method == "GET":
-        form = ContactForm()
-    else:
+    if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            your_email = form.cleaned_data["your_email"]
-            message = form.cleaned_data['message']
+            your_email=form.cleaned_data['your_email']
+            message=form.cleaned_data['message']
+            subject = f'JR.COM: NEW CONTACT FROM {your_email}'
             try:
-                send_mail(message, from_email, ["admin@example.com"])
+                send_mail(subject=subject,
+                          message=message,
+                          from_email=your_email,
+                          recipient_list=['jeremy.rico35@gmail.com']
+                    )
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("success")
+                
+            return redirect("/thanks/")
+    else:
+        form=ContactForm()
 
     context = {
-      'positions': positions,
-      'projects':projects,
-      'educations': educations,
-      'skills': skills,
-      'form': form
+        'positions': positions,
+        'projects':projects,
+        'educations': educations,
+        'skills': skills,
+        'form': form,
     }
+    
     return render(request, 'home.html', context)

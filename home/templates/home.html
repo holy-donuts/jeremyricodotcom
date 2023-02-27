@@ -5,13 +5,13 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <div class="hero-image"></div>
-<div class="hero-content">
-  <img src="{% static 'img/me.jpg' %}" class="hero-portrait rounded-circle" alt='me.jpg'>
-  <h1 class="display-1 mb-4">Jeremy Rico</h1>
-  <p class="lead">Software engineer specializing in artificial intelligence,
-     machine learning, and full-stack web development</p>
-  <a href="#about-me"><img src="{% static 'img/chevron-down.svg' %}" alt='chev-down'></a>
-</div>
+  <div class="hero-content">
+    <img src="{% static 'img/me.jpg' %}" class="rounded-circle" alt='me.jpg'>
+    <h1 class="display-1 mb-4">Jeremy Rico</h1>
+    <p class="lead">Software engineer specializing in artificial intelligence,
+      machine learning, and full-stack web development</p>
+    <a href="#about-me"><img src="{% static 'img/chevron-down.svg' %}" alt='chev-down'></a>
+  </div>
 
 <!--BEGIN ABOUT ME-->
 <div class="section-container" id="about-me">
@@ -87,7 +87,7 @@
       </div>
       <img src="{% static edu.img %}" alt="edu-logo">
     </div>
-  {% endfor %}
+    {% endfor %}
 </div>
 <!--END EDUCATION-->
 
@@ -108,19 +108,14 @@
 <div class="section-container" id="contact-me">
   <h1 class="section-header">CONTACT ME</h1>
   <div id="contact-form">
-    <form action="" method="get">
+    <form action="" method="post">
       {% csrf_token %}
       {{ form }}
-<!--      <label for="email">Your email:</label>
-      <input type="email" name="email">
-      <label for="message" class="context-label">Message:</label>
-      <textarea name="message"></textarea> -->
-      <button type='submit'>Send<i class="fas fa-paper-plane"></i></button>
+      <button class="g-recaptcha"
+	      data-sitekey="6LdeW5gkAAAAAE_DHjjO_5rDH2kj3U-G9FU5Ast3"
+	      data-callback='onSubmit'
+	      type='submit'>Send<i class="fas fa-paper-plane"></i></button>
     </form>
-     <!--class="g-recaptcha"
-        data-sitekey="6LdeW5gkAAAAAE_DHjjO_5rDH2kj3U-G9FU5Ast3"
-        data-callback='onSubmit'-->
-
   </div>
 </div>
 <!--END CONTACT ME FORM-->
@@ -134,5 +129,5 @@
     <a href="https://www.linkedin.com/in/jeremy-rico-787925106/"><img src="{% static 'img/iconmonstr-linkedin-3.svg' %}" alt='linkedin'></a>
   </div>
 </div>
-<!--END CONTACT ME-->
+<!--END FIND ME-->
 {%endblock %}

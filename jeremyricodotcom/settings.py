@@ -1,5 +1,5 @@
 #DEPLOYMENT VARIABLES
-SECURE_HSTS_SECONDS=3600
+SECURE_HSTS_SECONDS=2_592_000
 SECURE_HSTS_INCLUDE_SUBDOMAINS=True
 SECURE_SSL_REDIRECT=True
 SESSION_COOKIE_SECURE=True
@@ -120,15 +120,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "static"
-STATICFILES_DIRS = [
-    #BASE_DIR / "static",
-    #"jeremyricodotcom/static"
-]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 DEFAULT_FROM_EMAIL = "jeremy.rico35@gmail.com"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
