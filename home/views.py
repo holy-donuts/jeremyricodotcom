@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
+from django.contrib import messages
 from .models import Project, Position, Education, Skill
 from .forms import ContactForm
 
@@ -13,22 +14,25 @@ def home(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            your_email=form.cleaned_data['your_email']
+            from_email=form.cleaned_data['from_email']
             message=form.cleaned_data['message']
-            subject = f'JR.COM: NEW CONTACT FROM {your_email}'
+            subject = f"JR.COM: NEW CONTACT FROM {from_email}"
             try:
-                send_mail(subject=subject,
-                          message=message,
-                          from_email=your_email,
-                          recipient_list=['jeremy.rico35@gmail.com']
+                send_mail(subject,
+                          message,
+                          from_email,
+                          ['jeremy.rico35@gmail.com']
                     )
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-                
-            return redirect("/thanks/")
+
+            messages.success(request, 'Success! Thanks for your message!')
+        else:
+            messages.error(request, "Error: ReCaptcha failed :( Are you sure you're human?")
+           
     else:
         form=ContactForm()
-
+    
     context = {
         'positions': positions,
         'projects':projects,

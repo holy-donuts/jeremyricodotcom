@@ -111,13 +111,19 @@
     <form action="" method="post">
       {% csrf_token %}
       {{ form }}
-      <button class="g-recaptcha"
-	      data-sitekey="6LdeW5gkAAAAAE_DHjjO_5rDH2kj3U-G9FU5Ast3"
-	      data-callback='onSubmit'
-	      type='submit'>Send<i class="fas fa-paper-plane"></i></button>
+      <input id="send-button" type="submit" value="Send">
     </form>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{message}} </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </div>
 </div>
+
+
 <!--END CONTACT ME FORM-->
 
 <!--BEGIN FIND ME-->
