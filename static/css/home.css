@@ -12,10 +12,10 @@ a {
 .hero-image {
     position: relative;
     background-image: linear-gradient(0deg, #00000099 50%, #ffffff01 100%),
-		      url("../img/forest-bg.jpg");
+		      url("../img/forest_blurred.jpg");
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+    /*filter: blur(3px); this was slowing it down 4hed */
     /*background-position: center;
     background-repeat: no-repeat;*/
     background-size: cover;

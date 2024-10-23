@@ -1,3 +1,4 @@
 .env
 db.sqlite3
 .DJANGO_SECRET_KEY
+ADD_MODEL.md

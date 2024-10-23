@@ -1,6 +1,6 @@
 """Gunicorn *development* config file"""
 
-import jeremyricodotcom
+#import jeremyricodotcom
 # Django WSGI application path in pattern MODULE_NAME:VARIABLE_NAME
 wsgi_app = "jeremyricodotcom.wsgi:application"
 # The granularity of Error log outputs

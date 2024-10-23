@@ -1,0 +1,15 @@
+hey stupid
+
+so the site when down again huh?
+
+Here's what you need to do yah fuckin idiot
+
+Make sure the /var/run/gunicorn/prod.pid file exists. Sometimes it gets randomly deleted
+
+If it exists try updating gunicorn
+
+Run tail tail /var/log/gunicorn/error.log to check the error logs
+
+Activate env with 'activate'
+
+cd 
